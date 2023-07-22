@@ -12,7 +12,7 @@ import com.example.spring.model.TimeSession;
 @Repository
 public interface TimeSessionRepo extends JpaRepository<TimeSession, String>{
 	
-	@Query("select ts from TimeSession ts where ts.tokenId =:")
+	@Query("select ts from TimeSession ts where ts.tokenId =:token")
 	 List<TimeSession> findByTokenId(@Param(value="token") String tokenId);
 	
 	}

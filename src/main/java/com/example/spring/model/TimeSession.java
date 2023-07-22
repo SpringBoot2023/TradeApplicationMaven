@@ -29,7 +29,7 @@ public class TimeSession {
 	}
 
 	@Id
-	@Column(name="session_id")
+	@Column(name="sessionid")
 	public int getSessionId() {
 		return sessionId;
 	}

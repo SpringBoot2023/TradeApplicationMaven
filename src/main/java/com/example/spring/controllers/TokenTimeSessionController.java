@@ -24,7 +24,7 @@ public class TokenTimeSessionController {
 	TokenCreationService tokenCreationService;
 	
 	@Autowired
-	TimeSessionRepo timeSesssionRepo;
+	TimeSessionRepo timeSesssionRepository;
 	
 	@Autowired
 	TokenRepo tokenRepo;
@@ -32,11 +32,13 @@ public class TokenTimeSessionController {
 	@Autowired
 	ProductRepo productRepo;
 	
+	//This method creates token's start time and end time for each session ids. 
+	//Note: this method is tested through postman
 	@PostMapping(value = "/timeSessions")
 	public TimeSession createTimeSession(@RequestBody TimeSession timeSession) {
 		
 		System.out.println("timeSession Obj = "+timeSession.toString());
-		return timeSesssionRepo.save(timeSession);
+		return timeSesssionRepository.save(timeSession);
 		
 	}
 	
