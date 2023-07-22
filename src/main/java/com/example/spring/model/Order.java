@@ -18,13 +18,15 @@ public class Order {
 	private String tradingMemberId;
 	private String unitCode;
 	private String orderNature;
+	private String status;
+	private String rejectionreason;
 	
 	public Order() {
 		
 	}
 	
 	public Order(String orderId, String tokenId, double price, double quantity, String tradingAccountId,
-			String tradingMemberId, String unitCode, String orderNature) {
+			String tradingMemberId, String unitCode, String orderNature, String status, String rejectionreason) {
 		super();
 		this.orderId = orderId;
 		this.tokenId = tokenId;
@@ -34,8 +36,11 @@ public class Order {
 		this.tradingMemberId = tradingMemberId;
 		this.unitCode = unitCode;
 		this.orderNature = orderNature;
+		this.status = status;
+		this.rejectionreason = rejectionreason;
 	}
 	
+
 	@Id
 	@Column(name = "id", nullable = false)
 	public long getId() {
@@ -101,11 +106,30 @@ public class Order {
 		this.orderNature = orderNature;
 	}
 
+	@Column(name = "rejectionreason")
+	public String getRejectionreason() {
+		return rejectionreason;
+	}
 
+	public void setRejectionreason(String rejectionreason) {
+		this.rejectionreason = rejectionreason;
+	}
+
+	@Column(name = "status")
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", tokenId=" + tokenId + ", price=" + price + ", quantity=" + quantity
-				+ ", tradingAccountId=" + tradingAccountId + ", tradingMemberId=" + tradingMemberId + ", unitCode="
-				+ unitCode + ", orderNature=" + orderNature + "]";
-	}	
+		return "Order [id=" + id + ", orderId=" + orderId + ", tokenId=" + tokenId + ", price=" + price + ", quantity="
+				+ quantity + ", tradingAccountId=" + tradingAccountId + ", tradingMemberId=" + tradingMemberId
+				+ ", unitCode=" + unitCode + ", orderNature=" + orderNature + ", status=" + status + "]";
+	}
+
 }
